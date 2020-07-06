@@ -1,0 +1,26 @@
+require:
+  - rubocop-performance
+  - rubocop-rspec
+
+Layout/IndentationStyle:
+  EnforcedStyle: tabs
+  IndentationWidth: 2
+Layout/IndentationWidth:
+  Width: 1
+Layout/LineLength:
+  Max: 100
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Metrics/BlockLength:
+  Exclude:
+    - '*.gemspec'
+    - spec/**/*.rb
+    - lib/gem_toys/template.rb
+
+AllCops:
+  TargetRubyVersion: 2.5
+  NewCops: enable
+
+RSpec/NestedGroups:
+  Max: 4
