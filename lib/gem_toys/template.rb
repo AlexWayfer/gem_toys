@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'date'
+require 'toys-core'
 
 module GemToys
 	## Template with gem tools, should be expanded in toys file
