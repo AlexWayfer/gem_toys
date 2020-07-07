@@ -96,7 +96,7 @@ module GemToys
 						## Push tags
 						sh 'git push --tags'
 
-						push_new_gem
+						sh "gem push #{gem_file_name}"
 					end
 
 					private
@@ -140,11 +140,6 @@ module GemToys
 					def wait_for_manual_check
 						STDOUT.puts 'Please, validate files and commits before pushing.'
 						STDIN.gets
-					end
-
-					def push_new_gem
-						gem_file = Dir[File.join(context_directory, "#{@project_name}-#{version}.gem")].first
-						sh "gem push #{gem_file}"
 					end
 				end
 			end
