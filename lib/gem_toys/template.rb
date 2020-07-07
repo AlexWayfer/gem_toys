@@ -96,7 +96,7 @@ module GemToys
 						## Push tags
 						sh 'git push --tags'
 
-						sh "gem push #{gem_file_name}"
+						sh "gem push #{current_gem_file}"
 					end
 
 					private
