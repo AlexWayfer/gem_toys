@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+## 0.2.0 (2020-07-09)
+
 *   Add `:version_file_path` and `:unreleased_title` options
 *   Change the order of tasks: check (manually) before committing.
 *   Include `:exec` only unless already included.
