@@ -3,50 +3,21 @@
 require 'date'
 require 'toys-core'
 
+require_relative 'template/common_code'
+
 module GemToys
 	## Template with gem tools, should be expanded in toys file
 	class Template
 		include Toys::Template
 
-		## Module for common code between nested tools
-		module CommonCode
-			private
+		attr_reader :version_file_path, :unreleased_title
 
-			def project_name
-				@project_name ||= File.basename context_directory
-			end
-
-			def version_file_path
-				project_path = project_name.tr '-', '/'
-				@version_file_path ||= File.join context_directory, 'lib', project_path, 'version.rb'
-			end
-
-			def version_file_content
-				File.read version_file_path
-			end
-
-			def current_version
-				@current_version ||= version_file_content.match(/VERSION = '(.+)'/)[1]
-			end
-
-			def changelog_file_path
-				@changelog_file_path ||= File.join context_directory, 'CHANGELOG.md'
-			end
-
-			def gem_file_name
-				@gem_file_name ||= "#{project_name}-#{current_version}.gem"
-			end
-
-			def pkg_directory
-				@pkg_directory ||= "#{context_directory}/pkg"
-			end
-
-			def current_gem_file
-				"#{pkg_directory}/#{gem_file_name}"
-			end
+		def initialize(version_file_path: nil, unreleased_title: '## master (unreleased)')
+			@version_file_path = version_file_path
+			@unreleased_title = unreleased_title
 		end
 
-		on_expand do
+		on_expand do |template|
 			tool :gem do
 				subtool_apply do
 					include :exec, exit_on_nonzero_status: true, log_level: Logger::UNKNOWN
@@ -54,7 +25,9 @@ module GemToys
 				end
 
 				tool :build do
-					def run
+					to_run do
+						@template = template
+
 						sh 'gem build'
 						FileUtils.mkdir_p pkg_directory
 						FileUtils.mv "#{context_directory}/#{gem_file_name}", current_gem_file
@@ -62,7 +35,9 @@ module GemToys
 				end
 
 				tool :install do
-					def run
+					to_run do
+						@template = template
+
 						exec_tool 'gem build'
 						sh "gem install #{current_gem_file}"
 					end
@@ -71,11 +46,18 @@ module GemToys
 				tool :release do
 					required_arg :version
 
-					def run
+					to_run do
+						@template = template
+
 						update_version_file
 
 						## Update CHANGELOG
 						update_changelog_file
+
+						## Build new gem file
+						exec_tool 'gem build'
+
+						wait_for_manual_check
 
 						## Checkout to a new git branch, required for protected `master` with CI
 						# sh "git switch -c v#{version}"
@@ -84,11 +66,6 @@ module GemToys
 
 						## Tag commit
 						sh "git tag -a v#{version} -m 'Version #{version}'"
-
-						## Build new gem file
-						exec_tool 'gem build'
-
-						wait_for_manual_check
 
 						## Push commit
 						sh 'git push'
@@ -126,13 +103,15 @@ module GemToys
 					end
 
 					def new_changelog_content
+						unreleased_title = @template.unreleased_title
 						@changelog_lines.insert(
-							@changelog_lines.index("## master (unreleased)\n") + 2, "## #{version} (#{TODAY})\n\n"
+							@changelog_lines.index("#{unreleased_title}\n") + 2,
+							'#' * unreleased_title.scan(/^#+/).first.size + " #{version} (#{TODAY})\n\n"
 						).join
 					end
 
 					def commit_changes
-						sh "git add #{version_file_path} #{changelog_file_path}"
+						sh "git add #{version_file_path(@template.version_file_path)} #{changelog_file_path}"
 
 						sh "git commit -m 'Update version to #{version}'"
 					end

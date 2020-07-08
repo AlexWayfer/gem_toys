@@ -41,6 +41,20 @@ expand GemToys::Template
 alias_tool :g, :gem
 ```
 
+At invocation it will:
+
+1.  Update `lib/*gem_name*/version.rb` file.
+    Can be refined with `:version_file_path` option on `expand`.
+2.  Insert Markdown title with changes from `## master (unreleased)` in a `CHANGELOG.md` file.
+    Can be refined with `:unreleased_title` option on `expand`.
+3.  Execute `gem build`.
+4.  Ask you for manual check, if you want (print anything of OK).
+    You also can change manually a content of `CHANGELOG.md`, for example, before committing.
+5.  Commit these files.
+6.  Tag this commit with `vX.Y.Z`.
+7.  Push git commit and tag.
+8.  Push the new gem.
+
 ## Development
 
 After checking out the repo, run `bundle install` to install dependencies.
