@@ -65,26 +65,34 @@ module GemToys
 						commit_changes
 
 						## Tag commit
+						puts 'Tagging the commit...'
 						sh "git tag -a v#{version} -m 'Version #{version}'"
 
 						## Push commit
+						puts 'Pushing commit...'
 						sh 'git push'
 
 						## Push tags
+						puts 'Pushing tags...'
 						sh 'git push --tags'
 
+						puts 'Pushing gem...'
 						sh "gem push #{current_gem_file}"
 					end
 
 					private
 
 					def update_version_file
+						puts 'Updating version file...'
+
 						File.write version_file_path, version_file_content.sub(/'.+'/, "'#{version}'")
 					end
 
 					TODAY = Date.today.to_s
 
 					def update_changelog_file
+						puts 'Updating changelog file...'
+
 						@changelog_lines = File.readlines(changelog_file_path)
 
 						existing_line = find_version_line_in_changelog_file
@@ -111,6 +119,8 @@ module GemToys
 					end
 
 					def commit_changes
+						puts 'Committing changes...'
+
 						sh "git add #{version_file_path(@template.version_file_path)} #{changelog_file_path}"
 
 						sh "git commit -m 'Update version to #{version}'"
