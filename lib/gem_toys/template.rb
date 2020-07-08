@@ -124,7 +124,7 @@ module GemToys
 					def commit_changes
 						puts 'Committing changes...'
 
-						sh "git add #{version_file_path(@template.version_file_path)} #{changelog_file_path}"
+						sh "git add #{version_file_path} #{changelog_file_path}"
 
 						sh "git commit -m 'Update version to #{version}'"
 					end
