@@ -20,7 +20,10 @@ module GemToys
 		on_expand do |template|
 			tool :gem do
 				subtool_apply do
-					include :exec, exit_on_nonzero_status: true, log_level: Logger::UNKNOWN
+					unless include? :exec
+						include :exec, exit_on_nonzero_status: true, log_level: Logger::UNKNOWN
+					end
+
 					include CommonCode
 				end
 

@@ -4,6 +4,7 @@
 
 *   Add `:version_file_path` and `:unreleased_title` options
 *   Change the order of tasks: check (manually) before committing.
+*   Include `:exec` only unless already included.
 *   Improve usage documentation.
 *   Add output of process steps.
 
