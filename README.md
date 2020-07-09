@@ -41,13 +41,23 @@ expand GemToys::Template
 alias_tool :g, :gem
 ```
 
-At invocation it will:
+### Build
+
+`toys gem build` builds a gem with the current version and move it to the `pkg/` directory.
+
+### Install
+
+`toys gem install` [builds](#build) a gem and install it locally.
+
+### Release
+
+`toys gem release` does:
 
 1.  Update `lib/*gem_name*/version.rb` file.
     Can be refined with `:version_file_path` option on `expand`.
 2.  Insert Markdown title with changes from `## master (unreleased)` in a `CHANGELOG.md` file.
     Can be refined with `:unreleased_title` option on `expand`.
-3.  Execute `gem build`.
+3.  [Builds](#build) a gem.
 4.  Ask you for manual check, if you want (print anything of OK).
     You also can change manually a content of `CHANGELOG.md`, for example, before committing.
 5.  Commit these files.
