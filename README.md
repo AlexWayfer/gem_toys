@@ -73,8 +73,7 @@ Then, run `toys rspec` to run the tests.
 
 To install this gem onto your local machine, run `toys gem install`.
 
-To release a new version, run `toys gem release %version%`.
-See how it works [here](https://github.com/AlexWayfer/gem_toys#release).
+To release a new version, run `toys gem release %version%`. See how it works [here](#release).
 
 ## Contributing
 
