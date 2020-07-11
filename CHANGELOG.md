@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+## 0.3.0 (2020-07-11)
+
+*   Add support for Ruby 2.4
+
 ## 0.2.0 (2020-07-09)
 
 *   Add `:version_file_path` and `:unreleased_title` options
