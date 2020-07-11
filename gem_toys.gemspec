@@ -14,8 +14,6 @@ Gem::Specification.new do |spec|
 	DESC
 	spec.license = 'MIT'
 
-	spec.required_ruby_version = '>= 2.5'
-
 	source_code_uri = 'https://github.com/AlexWayfer/gem_toys'
 
 	spec.homepage = source_code_uri
@@ -28,6 +26,8 @@ Gem::Specification.new do |spec|
 		'https://github.com/AlexWayfer/gem_toys/blob/master/CHANGELOG.md'
 
 	spec.files = Dir['lib/**/*.rb', 'README.md', 'LICENSE.txt', 'CHANGELOG.md']
+
+	spec.required_ruby_version = '>= 2.4'
 
 	spec.add_development_dependency 'pry-byebug', '~> 3.9'
 
