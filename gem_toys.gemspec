@@ -34,11 +34,11 @@ Gem::Specification.new do |spec|
 	spec.add_development_dependency 'bundler', '~> 2.0'
 	spec.add_development_dependency 'toys', '~> 0.10.4'
 
-	spec.add_development_dependency 'codecov', '~> 0.1.20'
+	spec.add_development_dependency 'codecov', '~> 0.2.0'
 	spec.add_development_dependency 'rspec', '~> 3.9'
 	spec.add_development_dependency 'simplecov', '~> 0.18.0'
 
-	spec.add_development_dependency 'rubocop', '~> 0.87.0'
+	spec.add_development_dependency 'rubocop', '~> 0.88.0'
 	spec.add_development_dependency 'rubocop-performance', '~> 1.0'
 	spec.add_development_dependency 'rubocop-rspec', '~> 1.0'
 end
