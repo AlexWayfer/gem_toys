@@ -8,7 +8,7 @@ require_relative 'template/common_code'
 module GemToys
 	## Template with gem tools, should be expanded in toys file
 	class Template
-		include Toys::Template
+	 	include Toys::Template
 
 		attr_reader :version_file_path, :unreleased_title
 
@@ -68,7 +68,7 @@ module GemToys
 						commit_changes
 
 						## Tag commit
-						puts 'Tagging the commit...'
+						puts "Tagging the commit..."
 						sh "git tag -a v#{version} -m 'Version #{version}'"
 
 						## Push commit
