@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+*   Pass arguments and options to `rspec` and `rubocop` tasks.
+
 ## 0.3.0 (2020-07-11)
 
 *   Add support for Ruby 2.4
