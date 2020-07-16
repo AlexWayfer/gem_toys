@@ -12,8 +12,10 @@ expand GemToys::Template
 alias_tool :g, :gem
 
 tool :rspec do
+	disable_argument_parsing
+
 	def run
-		exec 'rspec'
+		exec ['rspec', *args]
 	end
 end
 
@@ -21,7 +23,9 @@ alias_tool :spec, :rspec
 alias_tool :test, :rspec
 
 tool :rubocop do
+	disable_argument_parsing
+
 	def run
-		exec 'rubocop'
+		exec ['rubocop', *args]
 	end
 end
