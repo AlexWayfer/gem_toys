@@ -52,6 +52,8 @@ module GemToys
 					to_run do
 						@template = template
 
+						@today = Date.today.to_s
+
 						update_version_file
 
 						## Update CHANGELOG
@@ -91,8 +93,6 @@ module GemToys
 						File.write version_file_path, version_file_content.sub(/'.+'/, "'#{version}'")
 					end
 
-					TODAY = Date.today.to_s
-
 					def update_changelog_file
 						puts 'Updating changelog file...'
 
@@ -101,7 +101,7 @@ module GemToys
 						existing_line = find_version_line_in_changelog_file
 
 						if existing_line
-							return if (existing_date = existing_line.match(/\((.*)\)/)[1]) == TODAY
+							return if (existing_date = existing_line.match(/\((.*)\)/)[1]) == @today
 
 							abort "There is already #{version} version with date #{existing_date}"
 						end
@@ -117,7 +117,7 @@ module GemToys
 						unreleased_title = @template.unreleased_title
 						@changelog_lines.insert(
 							@changelog_lines.index("#{unreleased_title}\n") + 2,
-							'#' * unreleased_title.scan(/^#+/).first.size + " #{version} (#{TODAY})\n\n"
+							'#' * unreleased_title.scan(/^#+/).first.size + " #{version} (#{@today})\n\n"
 						).join
 					end
 
@@ -130,8 +130,8 @@ module GemToys
 					end
 
 					def wait_for_manual_check
-						STDOUT.puts 'Please, validate files and commits before pushing.'
-						STDIN.gets
+						$stdout.puts 'Please, validate files and commits before pushing.'
+						$stdin.gets
 					end
 				end
 			end
