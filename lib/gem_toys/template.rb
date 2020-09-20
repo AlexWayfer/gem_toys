@@ -90,7 +90,10 @@ module GemToys
 					def update_version_file
 						puts 'Updating version file...'
 
-						File.write version_file_path, version_file_content.sub(/'.+'/, "'#{version}'")
+						File.write(
+							version_file_path,
+							version_file_content.sub(/(VERSION = )'.+'/, "\\1'#{version}'")
+						)
 					end
 
 					def update_changelog_file
