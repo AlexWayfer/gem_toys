@@ -15,7 +15,7 @@ module GemToys
 
 			on_expand do |template|
 				tool :release do
-					required_arg :version
+					required_arg :new_version
 
 					to_run do
 						require 'date'
@@ -35,13 +35,13 @@ module GemToys
 						wait_for_manual_check
 
 						## Checkout to a new git branch, required for protected `master` with CI
-						# sh "git switch -c v#{version}"
+						# sh "git switch -c v#{new_version}"
 
 						commit_changes
 
 						## Tag commit
 						puts 'Tagging the commit...'
-						sh "git tag -a v#{version} -m 'Version #{version}'"
+						sh "git tag -a v#{new_version} -m 'Version #{new_version}'"
 
 						## Push commit
 						puts 'Pushing commit...'
@@ -62,7 +62,7 @@ module GemToys
 
 						File.write(
 							version_file_path,
-							version_file_content.sub(/(VERSION = )'.+'/, "\\1'#{version}'")
+							version_file_content.sub(/(VERSION = )'.+'/, "\\1'#{new_version}'")
 						)
 					end
 
@@ -71,7 +71,7 @@ module GemToys
 
 						@changelog_lines = File.readlines(changelog_file_path)
 
-						existing_line = find_version_line_in_changelog_file
+						existing_line = @changelog_lines.find { |line| line.start_with? "## #{new_version} " }
 
 						if existing_line
 							return if (existing_date = existing_line.match(/\((.*)\)/)[1]) == @today
@@ -82,15 +82,11 @@ module GemToys
 						File.write changelog_file_path, new_changelog_content
 					end
 
-					def find_version_line_in_changelog_file
-						@changelog_lines.find { |line| line.start_with? "## #{version} " }
-					end
-
 					def new_changelog_content
 						unreleased_title = @template.unreleased_title
 						@changelog_lines.insert(
 							@changelog_lines.index("#{unreleased_title}\n") + 2,
-							'#' * unreleased_title.scan(/^#+/).first.size + " #{version} (#{@today})\n\n"
+							'#' * unreleased_title.scan(/^#+/).first.size + " #{new_version} (#{@today})\n\n"
 						).join
 					end
 
@@ -99,7 +95,7 @@ module GemToys
 
 						sh "git add #{version_file_path} #{changelog_file_path}"
 
-						sh "git commit -m 'Update version to #{version}'"
+						sh "git commit -m 'Update version to #{new_version}'"
 					end
 
 					def wait_for_manual_check
