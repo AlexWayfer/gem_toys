@@ -103,7 +103,11 @@ module GemToys
 					end
 
 					def wait_for_manual_check
-						$stdout.puts 'Please, validate files and commits before pushing.'
+						$stdout.puts
+						sh "git diff #{version_file_path} #{changelog_file_path}"
+						$stdout.puts
+						$stdout.puts 'Please, validate files before committing and pushing!'
+						$stdout.puts 'Press anything to continue, Ctrl+C to cancel.'
 						$stdin.gets
 					end
 				end
