@@ -43,6 +43,37 @@ module GemToys
 			def current_gem_file
 				"#{pkg_directory}/#{gem_file_name}"
 			end
+
+			def rubygems_connection
+				@rubygems_connection ||= begin
+					require 'faraday'
+					require 'faraday_middleware'
+
+					Faraday.new 'https://rubygems.org/api/v1' do |conn|
+						conn.response :json, parser_options: { symbolize_names: true }
+					end
+				end
+			end
+
+			def rubygems_versions
+				@rubygems_versions ||= rubygems_connection.get("versions/#{project_name}.json").body
+			end
+
+			def puts_versions(versions)
+				require 'date'
+
+				longest_version_number = versions.map { |version| version[:number].length }.max
+
+				versions.each do |version|
+					created_at = begin
+						DateTime.parse(version[:created_at]).strftime('%b %e %Y %R')
+					rescue Date::Error
+						version[:created_at]
+					end
+
+					puts "#{version[:number].ljust(longest_version_number)}  (#{created_at})"
+				end
+			end
 		end
 	end
 end

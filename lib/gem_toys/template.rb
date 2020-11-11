@@ -45,6 +45,20 @@ module GemToys
 					end
 				end
 
+				tool :version do
+					to_run do
+						@template = template
+
+						puts_versions [
+							rubygems_versions.find(
+								-> { { number: current_version, created_at: 'unreleased' } }
+							) do |rubygems_version|
+								rubygems_version[:number] == current_version
+							end
+						]
+					end
+				end
+
 				require_relative 'template/releases'
 				expand Template::Releases
 
