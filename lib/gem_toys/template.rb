@@ -59,8 +59,8 @@ module GemToys
 					end
 				end
 
-				require_relative 'template/releases'
-				expand Template::Releases
+				require_relative 'template/versions'
+				expand Template::Versions
 
 				require_relative 'template/release'
 				expand Template::Release,
