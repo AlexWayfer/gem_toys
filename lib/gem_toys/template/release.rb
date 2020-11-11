@@ -75,6 +75,8 @@ module GemToys
 							else
 								new_version
 							end
+
+						clear_memery_cache! :current_version
 					end
 
 					def handle_keyword_in_new_version(current_version_parts, version_index)
