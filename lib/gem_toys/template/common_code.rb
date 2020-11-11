@@ -59,6 +59,10 @@ module GemToys
 				@rubygems_versions ||= rubygems_connection.get("versions/#{project_name}.json").body
 			end
 
+			def current_version_hash
+				{ number: current_version, created_at: 'unreleased' }
+			end
+
 			def puts_versions(versions)
 				require 'date'
 
