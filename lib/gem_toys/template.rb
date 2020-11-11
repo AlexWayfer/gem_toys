@@ -49,11 +49,11 @@ module GemToys
 					to_run do
 						@template = template
 
-						puts_versions [
-							rubygems_versions.find(-> { current_version_hash }) do |rubygems_version|
-								rubygems_version[:number] == current_version
-							end
-						]
+						version = rubygems_versions.find(-> { current_version_hash }) do |rubygems_version|
+							rubygems_version[:number] == current_version
+						end
+
+						puts_versions [version]
 					end
 				end
 
