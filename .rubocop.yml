@@ -35,6 +35,7 @@ Metrics/BlockLength:
     - '*.gemspec'
     - spec/**/*.rb
     - lib/gem_toys/template.rb
+    - lib/gem_toys/template/*.rb
 
 AllCops:
   TargetRubyVersion: 2.5

@@ -46,6 +46,9 @@ module GemToys
 					end
 				end
 
+				require_relative 'template/releases'
+				expand Template::Releases
+
 				tool :release do
 					required_arg :version
 
