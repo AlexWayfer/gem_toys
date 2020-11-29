@@ -2,6 +2,18 @@
 
 ## master (unreleased)
 
+## 0.5.0 (2020-11-29)
+
+*   Add `versions` tool with `releases` alias.
+*   Add `version` tool.
+*   Add an ability to release new `major`, `minor` or `patch` version.
+    Just specify keyword instead of number and it'll increase correctly.
+*   Print `git diff` for files which will be commited on `release`.
+*   Drop Ruby 2.4 support.
+    [Support of Ruby 2.4 has ended](https://www.ruby-lang.org/en/news/2020/04/05/support-of-ruby-2-4-has-ended/).
+*   Add and use `memery` dependency.
+*   Update `rubocop`, `remark`.
+
 ## 0.4.0 (2020-09-21)
 
 *   Improve version update script, support files with other String constants.
