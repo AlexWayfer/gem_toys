@@ -118,10 +118,22 @@ module GemToys
 
 					def new_changelog_content
 						unreleased_title = @template.unreleased_title
+
+						unreleased_title_index = @changelog_lines.index("#{unreleased_title}\n")
+
+						abort_without_unreleased_title unless unreleased_title_index
+
 						@changelog_lines.insert(
-							@changelog_lines.index("#{unreleased_title}\n") + 2,
+							unreleased_title_index + 2,
 							'#' * unreleased_title.scan(/^#+/).first.size + " #{@new_version} (#{@today})\n\n"
 						).join
+					end
+
+					def abort_without_unreleased_title
+						abort <<~TEXT
+							`#{@template.unreleased_title}` not found in the `#{changelog_file_name}` as the title for unreleased changes.
+							Please, use `:unreleased_title` option if you have non-default one.
+						TEXT
 					end
 
 					def commit_changes
