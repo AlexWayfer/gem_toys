@@ -35,7 +35,8 @@ gem install gem_toys
 ```ruby
 # .toys.rb
 require 'gem_toys'
-expand GemToys::Template
+expand GemToys::Template,
+  unreleased_title: '## Unreleased' ## default is `## master (unreleased)`
 
 # `gem` namespace created, aliases are optional, but handful
 alias_tool :g, :gem
