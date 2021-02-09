@@ -2,6 +2,13 @@
 
 ## master (unreleased)
 
+## 0.6.0 (2021-02-10)
+
+*   Support Ruby 3.
+*   Fix error with undefined `FileUtils`.
+*   Fix error with `release` tool via updating `alt_memery` to a fixed version.
+*   Update development dependencies.
+
 ## 0.5.0 (2020-11-29)
 
 *   Add `versions` tool with `releases` alias.
