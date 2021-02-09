@@ -31,6 +31,8 @@ module GemToys
 						@template = template
 
 						sh 'gem build'
+
+						require 'fileutils'
 						FileUtils.mkdir_p pkg_directory
 						FileUtils.mv "#{context_directory}/#{gem_file_name}", current_gem_file
 					end
