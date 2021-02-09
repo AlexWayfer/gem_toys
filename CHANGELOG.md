@@ -2,6 +2,11 @@
 
 ## master (unreleased)
 
+## 0.6.1 (2021-02-10)
+
+*   Gently abort when `unreleased_title` not found.
+*   Improve documentation about `:unreleased_title` option.
+
 ## 0.6.0 (2021-02-10)
 
 *   Support Ruby 3.
