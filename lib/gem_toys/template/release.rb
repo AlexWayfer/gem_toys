@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require_relative 'release/changelog'
+require_relative 'release/git'
+
 module GemToys
 	class Template
 		## Template with gem release tool, expanding internally
@@ -22,6 +25,9 @@ module GemToys
 
 			on_expand do |template|
 				tool :release do
+					include Release::Changelog
+					include Release::Git
+
 					required_arg :new_version
 
 					to_run do
@@ -43,24 +49,8 @@ module GemToys
 
 						wait_for_manual_check
 
-						new_version_git_tag = "#{@template.version_tag_prefix}#{@new_version}"
-
-						## Checkout to a new git branch, required for protected `master` with CI
-						# sh "git switch -c #{new_version_git_tag}"
-
-						commit_changes
-
-						## Tag commit
-						puts 'Tagging the commit...'
-						sh "git tag -a #{new_version_git_tag} -m 'Version #{@new_version}'"
-
-						## Push commit
-						puts 'Pushing commit...'
-						sh 'git push'
-
-						## Push tags
-						puts 'Pushing tags...'
-						sh 'git push --tags'
+						## Commit, tag, push
+						process_git
 
 						puts 'Pushing gem...'
 						sh "gem push #{current_gem_file}"
@@ -107,50 +97,6 @@ module GemToys
 							version_file_path,
 							version_file_content.sub(/(VERSION = )'.+'/, "\\1'#{@new_version}'")
 						)
-					end
-
-					def update_changelog_file
-						puts 'Updating changelog file...'
-
-						@changelog_lines = File.readlines(changelog_file_path)
-
-						existing_line = @changelog_lines.find { |line| line.start_with? "## #{@new_version} " }
-
-						if existing_line
-							return if (existing_date = existing_line.match(/\((.*)\)/)[1]) == @today
-
-							abort "There is already #{version} version with date #{existing_date}"
-						end
-
-						File.write changelog_file_path, new_changelog_content
-					end
-
-					def new_changelog_content
-						unreleased_title = @template.unreleased_title
-
-						unreleased_title_index = @changelog_lines.index("#{unreleased_title}\n")
-
-						abort_without_unreleased_title unless unreleased_title_index
-
-						@changelog_lines.insert(
-							unreleased_title_index + 2,
-							'#' * unreleased_title.scan(/^#+/).first.size + " #{@new_version} (#{@today})\n\n"
-						).join
-					end
-
-					def abort_without_unreleased_title
-						abort <<~TEXT
-							`#{@template.unreleased_title}` not found in the `#{@template.changelog_file_name}` as the title for unreleased changes.
-							Please, use `:unreleased_title` option if you have non-default one.
-						TEXT
-					end
-
-					def commit_changes
-						puts 'Committing changes...'
-
-						sh "git add #{version_file_path} #{changelog_file_path}"
-
-						sh "git commit -m 'Update version to #{@new_version}'"
 					end
 
 					def wait_for_manual_check
