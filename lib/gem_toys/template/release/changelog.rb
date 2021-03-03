@@ -15,7 +15,7 @@ module GemToys
 					existing_line = @changelog_lines.find { |line| line.start_with? "## #{@new_version} " }
 
 					if existing_line
-						return if (existing_date = existing_line.match(/\((.*)\)/)[1]) == @today
+						return if (existing_date = existing_line.scan(/\(([^()]+)\)/).last.first) == @today
 
 						abort "There is already #{new_version} version with date #{existing_date}"
 					end
