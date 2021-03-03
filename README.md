@@ -41,7 +41,9 @@ expand GemToys::Template,
   ## default is `## master (unreleased)`
   unreleased_title: '## Unreleased',
   ## default is `"lib/#{project_name_with_slashes_instead_dashes}/version.rb"`
-  version_file_path: 'lib/my-awesome_gem.rb'
+  version_file_path: 'lib/my-awesome_gem.rb',
+  ## default is `v`, so tags are like `v4.1.0`
+  version_tag_prefix: ''
 
 # `gem` namespace created, aliases are optional, but handful
 alias_tool :g, :gem

@@ -6,15 +6,17 @@ module GemToys
 		class Release
 			include Toys::Template
 
-			attr_reader :changelog_file_name, :version_file_path, :unreleased_title
+			attr_reader :changelog_file_name, :version_file_path, :version_tag_prefix, :unreleased_title
 
 			def initialize(
 				changelog_file_name:,
 				version_file_path:,
+				version_tag_prefix:,
 				unreleased_title:
 			)
 				@changelog_file_name = changelog_file_name
 				@version_file_path = version_file_path
+				@version_tag_prefix = version_tag_prefix
 				@unreleased_title = unreleased_title
 			end
 
@@ -41,14 +43,16 @@ module GemToys
 
 						wait_for_manual_check
 
+						new_version_git_tag = "#{@template.version_tag_prefix}#{@new_version}"
+
 						## Checkout to a new git branch, required for protected `master` with CI
-						# sh "git switch -c v#{@new_version}"
+						# sh "git switch -c #{new_version_git_tag}"
 
 						commit_changes
 
 						## Tag commit
 						puts 'Tagging the commit...'
-						sh "git tag -a v#{@new_version} -m 'Version #{@new_version}'"
+						sh "git tag -a #{new_version_git_tag} -m 'Version #{@new_version}'"
 
 						## Push commit
 						puts 'Pushing commit...'
