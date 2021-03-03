@@ -17,7 +17,7 @@ module GemToys
 					if existing_line
 						return if (existing_date = existing_line.match(/\((.*)\)/)[1]) == @today
 
-						abort "There is already #{version} version with date #{existing_date}"
+						abort "There is already #{new_version} version with date #{existing_date}"
 					end
 
 					File.write changelog_file_path, new_changelog_content
