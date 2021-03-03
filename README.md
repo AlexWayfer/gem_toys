@@ -36,6 +36,8 @@ gem install gem_toys
 # .toys.rb
 require 'gem_toys'
 expand GemToys::Template,
+  ## default is `CHANGELOG.md`
+  changelog_file_name: 'ChangeLog.md',
   ## default is `## master (unreleased)`
   unreleased_title: '## Unreleased',
   ## default is `"lib/#{project_name_with_slashes_instead_dashes}/version.rb"`

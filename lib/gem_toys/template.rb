@@ -9,9 +9,14 @@ module GemToys
 	class Template
 		include Toys::Template
 
-		attr_reader :version_file_path, :unreleased_title
+		attr_reader :changelog_file_name, :version_file_path, :unreleased_title
 
-		def initialize(version_file_path: nil, unreleased_title: '## master (unreleased)')
+		def initialize(
+			changelog_file_name: 'CHANGELOG.md',
+			version_file_path: nil,
+			unreleased_title: '## master (unreleased)'
+		)
+			@changelog_file_name = changelog_file_name
 			@version_file_path = version_file_path
 			@unreleased_title = unreleased_title
 		end
@@ -65,6 +70,7 @@ module GemToys
 
 				require_relative 'template/release'
 				expand Template::Release,
+					changelog_file_name: template.changelog_file_name,
 					version_file_path: template.version_file_path,
 					unreleased_title: template.unreleased_title
 			end

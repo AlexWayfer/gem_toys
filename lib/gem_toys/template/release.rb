@@ -6,9 +6,14 @@ module GemToys
 		class Release
 			include Toys::Template
 
-			attr_reader :version_file_path, :unreleased_title
+			attr_reader :changelog_file_name, :version_file_path, :unreleased_title
 
-			def initialize(version_file_path:, unreleased_title:)
+			def initialize(
+				changelog_file_name:,
+				version_file_path:,
+				unreleased_title:
+			)
+				@changelog_file_name = changelog_file_name
 				@version_file_path = version_file_path
 				@unreleased_title = unreleased_title
 			end
@@ -131,7 +136,7 @@ module GemToys
 
 					def abort_without_unreleased_title
 						abort <<~TEXT
-							`#{@template.unreleased_title}` not found in the `#{changelog_file_name}` as the title for unreleased changes.
+							`#{@template.unreleased_title}` not found in the `#{@template.changelog_file_name}` as the title for unreleased changes.
 							Please, use `:unreleased_title` option if you have non-default one.
 						TEXT
 					end

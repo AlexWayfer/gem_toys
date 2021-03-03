@@ -31,12 +31,8 @@ module GemToys
 				version_file_content.match(/VERSION = '(.+)'/)[1]
 			end
 
-			memoize def changelog_file_name
-				'CHANGELOG.md'
-			end
-
 			memoize def changelog_file_path
-				File.join context_directory, changelog_file_name
+				File.join context_directory, @template.changelog_file_name
 			end
 
 			memoize def gem_file_name
