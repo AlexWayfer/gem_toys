@@ -75,7 +75,7 @@ module GemToys
 
 				versions.each do |version|
 					created_at = begin
-						DateTime.parse(version[:created_at]).strftime('%b %e %Y %R')
+						DateTime.parse(version[:created_at]).strftime('%F %R')
 					rescue Date::Error
 						version[:created_at]
 					end
