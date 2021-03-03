@@ -2,6 +2,12 @@
 
 ## master (unreleased)
 
+## 0.7.1 (2021-03-04)
+
+*   Fix error about non-renamed `version` in one of aborts.
+*   Improve Regexp for date of existing release.
+    Catch only content inside the last parentheses.
+
 ## 0.7.0 (2021-03-04)
 
 *   Add `:changelog_file_name` option.
