@@ -2,6 +2,14 @@
 
 ## master (unreleased)
 
+## 0.7.0 (2021-03-04)
+
+*   Add `:changelog_file_name` option.
+*   Add `:version_tag_prefix` option.
+*   Change date format for `versions` tool.
+*   Add documentation about `:version_file_path` option.
+*   Split `release` tool into modules for RuboCop satisfaction.
+
 ## 0.6.1 (2021-02-10)
 
 *   Gently abort when `unreleased_title` not found.
