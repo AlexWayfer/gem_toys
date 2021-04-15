@@ -113,6 +113,7 @@ module GemToys
 
 							menu.choice(:yes)
 							menu.choice(:no) { abort }
+							menu.choice(:refresh) { send(__method__) }
 						end
 					end
 				end
