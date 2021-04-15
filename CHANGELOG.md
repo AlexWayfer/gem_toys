@@ -2,6 +2,10 @@
 
 ## master (unreleased)
 
+## 0.8.0 (2021-04-16)
+
+*   Add `refresh` answer for release confirmation.
+
 ## 0.7.1 (2021-03-04)
 
 *   Fix error about non-renamed `version` in one of aborts.
