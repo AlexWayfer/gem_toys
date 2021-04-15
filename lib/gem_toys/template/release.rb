@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'highline'
+
 require_relative 'release/changelog'
 require_relative 'release/git'
 
@@ -103,9 +105,15 @@ module GemToys
 						$stdout.puts
 						sh "git diff #{version_file_path} #{changelog_file_path}"
 						$stdout.puts
-						$stdout.puts 'Please, validate files before committing and pushing!'
-						$stdout.puts 'Press anything to continue, Ctrl+C to cancel.'
-						$stdin.gets
+
+						HighLine.new.choose do |menu|
+							menu.layout = :one_line
+
+							menu.prompt = 'Are these changes correct? '
+
+							menu.choice(:yes)
+							menu.choice(:no) { abort }
+						end
 					end
 				end
 			end
