@@ -2,6 +2,13 @@
 
 ## master (unreleased)
 
+## 0.9.0 (2021-08-26)
+
+*   Fix built gem version after `refresh` answer.
+*   Update development dependencies.
+*   Lock RuboCop version better.
+*   Resolve new RuboCop offenses.
+
 ## 0.8.0 (2021-04-16)
 
 *   Add `refresh` answer for release confirmation.
