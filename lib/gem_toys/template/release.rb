@@ -102,10 +102,18 @@ module GemToys
 					end
 
 					def wait_for_manual_check
+						print_files_diff
+
+						manual_check_menu
+					end
+
+					def print_files_diff
 						$stdout.puts
 						sh "git diff #{version_file_path} #{changelog_file_path}"
 						$stdout.puts
+					end
 
+					def manual_check_menu
 						HighLine.new.choose do |menu|
 							menu.layout = :one_line
 
