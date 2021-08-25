@@ -46,10 +46,10 @@ module GemToys
 						## Update CHANGELOG
 						update_changelog_file
 
+						wait_for_manual_check
+
 						## Build new gem file
 						exec_tool 'gem build'
-
-						wait_for_manual_check
 
 						## Commit, tag, push
 						process_git
@@ -113,7 +113,10 @@ module GemToys
 
 							menu.choice(:yes)
 							menu.choice(:no) { abort }
-							menu.choice(:refresh) { send(__method__) }
+							menu.choice(:refresh) do
+								handle_new_version
+								wait_for_manual_check
+							end
 						end
 					end
 				end
