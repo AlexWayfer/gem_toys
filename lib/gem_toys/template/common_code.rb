@@ -59,7 +59,13 @@ module GemToys
 			end
 
 			memoize def rubygems_versions
-				rubygems_connection.get("versions/#{project_name}.json").body
+				response = rubygems_connection.get("versions/#{project_name}.json").body
+
+				return response if response.is_a?(Array)
+
+				return [] if response == 'This rubygem could not be found.'
+
+				raise "Unexpected response from RubyGems.org: #{response.inspect}"
 			end
 
 			def current_version_hash

@@ -19,7 +19,9 @@ module GemToys
 
 						versions = rubygems_versions
 
-						versions.unshift current_version_hash if current_version != versions.first[:number]
+						if versions.empty? || current_version != versions.first[:number]
+							versions.unshift current_version_hash
+						end
 
 						puts_versions versions
 					end
