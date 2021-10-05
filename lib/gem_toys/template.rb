@@ -15,7 +15,7 @@ module GemToys
 			changelog_file_name: 'CHANGELOG.md',
 			version_file_path: nil,
 			version_tag_prefix: 'v',
-			unreleased_title: '## master (unreleased)'
+			unreleased_title: '## Unreleased'
 		)
 			@changelog_file_name = changelog_file_name
 			@version_file_path = version_file_path

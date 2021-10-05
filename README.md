@@ -38,8 +38,8 @@ require 'gem_toys'
 expand GemToys::Template,
   ## default is `CHANGELOG.md`
   changelog_file_name: 'ChangeLog.md',
-  ## default is `## master (unreleased)`
-  unreleased_title: '## Unreleased',
+  ## default is `## Unreleased`
+  unreleased_title: '## main (unreleased)',
   ## default is `"lib/#{project_name_with_slashes_instead_dashes}/version.rb"`
   version_file_path: 'lib/my-awesome_gem.rb',
   ## default is `v`, so tags are like `v4.1.0`
@@ -63,7 +63,7 @@ alias_tool :g, :gem
 
 1.  Update `lib/*gem_name*/version.rb` file.
     Can be refined with `:version_file_path` option on `expand`.
-2.  Insert Markdown title with changes from `## master (unreleased)` in a `CHANGELOG.md` file.
+2.  Insert Markdown title with changes from `## Unreleased` in a `CHANGELOG.md` file.
     Can be refined with `:unreleased_title` option on `expand`.
 3.  [Builds](#build) a gem.
 4.  Ask you for manual check, if you want (print anything of OK).
