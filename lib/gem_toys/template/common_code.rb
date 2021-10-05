@@ -51,8 +51,10 @@ module GemToys
 				require 'faraday'
 				require 'faraday_middleware'
 
-				Faraday.new 'https://rubygems.org/api/v1' do |conn|
-					conn.response :json, parser_options: { symbolize_names: true }
+				Faraday.new 'https://rubygems.org/api/v1' do |connection|
+					connection.response :json,
+						content_type: /\bjson$/,
+						parser_options: { symbolize_names: true }
 				end
 			end
 
