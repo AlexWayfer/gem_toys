@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+## 0.10.0 (2021-10-15)
+
+*   Process cases with non-JSON String from RubyGems.org.
+*   Update development dependencies.
+*   Resolve new offenses from RuboCop.
+*   Change default for unreleased in Changelog.
+
 ## 0.9.0 (2021-08-26)
 
 *   Fix built gem version after `refresh` answer.
