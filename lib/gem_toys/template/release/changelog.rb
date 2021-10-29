@@ -28,7 +28,10 @@ module GemToys
 
 					unreleased_title_index = @changelog_lines.index("#{unreleased_title}\n")
 
-					abort_without_unreleased_title unless unreleased_title_index
+					unless unreleased_title_index
+						`git restore --worktree #{version_file_path}`
+						abort_without_unreleased_title
+					end
 
 					@changelog_lines.insert(
 						unreleased_title_index + 2,
