@@ -120,7 +120,12 @@ module GemToys
 							menu.prompt = 'Are these changes correct? '
 
 							menu.choice(:yes)
-							menu.choice(:no) { abort }
+							menu.choice(:no) do
+								[version_file_path, changelog_file_path].each do |file_path|
+									sh "git restore --worktree #{file_path}"
+								end
+								abort
+							end
 							menu.choice(:refresh) do
 								handle_new_version
 								wait_for_manual_check

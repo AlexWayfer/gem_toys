@@ -29,7 +29,7 @@ module GemToys
 					unreleased_title_index = @changelog_lines.index("#{unreleased_title}\n")
 
 					unless unreleased_title_index
-						`git restore --worktree #{version_file_path}`
+						sh "git restore --worktree #{version_file_path}"
 						abort_without_unreleased_title
 					end
 
