@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+## 0.11.0 (2021-10-29)
+
+*   Revert version and changelog files changes at rejection.
+*   Revert version file changes at changelog fails.
+*   Update development dependencies.
+
 ## 0.10.0 (2021-10-15)
 
 *   Process cases with non-JSON String from RubyGems.org.
