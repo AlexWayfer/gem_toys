@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## 0.11.1 (2021-11-07)
+
+*   Fix new version for git staff after manual refresh.
+
 ## 0.11.0 (2021-10-29)
 
 *   Revert version and changelog files changes at rejection.
