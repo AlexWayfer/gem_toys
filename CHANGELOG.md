@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## 0.11.2 (2021-11-07)
+
+*   Fix version for gem staff after manual refresh too.
+
 ## 0.11.1 (2021-11-07)
 
 *   Fix new version for git staff after manual refresh.
