@@ -117,10 +117,12 @@ module GemToys
 
 							menu.prompt = 'Are these changes correct? '
 
-							menu.choice(:yes)
+							menu.choice(:yes) do
+								## `current_version` is using in `git` and `gem` commands
+								clear_memery_cache! :current_version
+							end
 							menu.choice(:no) { handle_refusing_to_continue }
 							menu.choice(:refresh) do
-								@new_version = parse_version_from_file
 								wait_for_manual_check
 							end
 						end
