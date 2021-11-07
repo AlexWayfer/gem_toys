@@ -28,6 +28,10 @@ module GemToys
 			end
 
 			memoize def current_version
+				parse_version_from_file
+			end
+
+			def parse_version_from_file
 				version_file_content.match(/VERSION = '(.+)'/)[1]
 			end
 

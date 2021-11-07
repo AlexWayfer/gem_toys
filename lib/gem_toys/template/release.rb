@@ -76,8 +76,6 @@ module GemToys
 							else
 								new_version
 							end
-
-						clear_memery_cache! :current_version
 					end
 
 					def handle_keyword_in_new_version(current_version_parts, version_index)
@@ -122,7 +120,7 @@ module GemToys
 							menu.choice(:yes)
 							menu.choice(:no) { handle_refusing_to_continue }
 							menu.choice(:refresh) do
-								handle_new_version
+								@new_version = parse_version_from_file
 								wait_for_manual_check
 							end
 						end
