@@ -99,18 +99,6 @@ module GemToys
 						)
 					end
 
-					def wait_for_manual_check
-						print_files_diff
-
-						manual_check_menu
-					end
-
-					def print_files_diff
-						$stdout.puts
-						sh "git diff #{version_file_path} #{changelog_file_path}"
-						$stdout.puts
-					end
-
 					self::MANUAL_CHECK_MENU = {
 						yes: (proc do
 							## `current_version` is using in `git` and `gem` commands
@@ -124,7 +112,9 @@ module GemToys
 						end)
 					}.freeze
 
-					def manual_check_menu
+					def wait_for_manual_check
+						print_files_diff
+
 						HighLine.new.choose do |menu|
 							menu.layout = :one_line
 
@@ -134,6 +124,12 @@ module GemToys
 								menu.choice(choice) { instance_exec(&block) }
 							end
 						end
+					end
+
+					def print_files_diff
+						$stdout.puts
+						sh "git diff #{version_file_path} #{changelog_file_path}"
+						$stdout.puts
 					end
 
 					def handle_refusing_to_continue
