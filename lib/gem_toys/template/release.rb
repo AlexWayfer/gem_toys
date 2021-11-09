@@ -111,19 +111,27 @@ module GemToys
 						$stdout.puts
 					end
 
+					self::MANUAL_CHECK_MENU = {
+						yes: (proc do
+							## `current_version` is using in `git` and `gem` commands
+							clear_memery_cache! :current_version
+						end),
+						no: (proc do
+							handle_refusing_to_continue
+						end),
+						refresh: (proc do
+							wait_for_manual_check
+						end)
+					}.freeze
+
 					def manual_check_menu
 						HighLine.new.choose do |menu|
 							menu.layout = :one_line
 
 							menu.prompt = 'Are these changes correct? '
 
-							menu.choice(:yes) do
-								## `current_version` is using in `git` and `gem` commands
-								clear_memery_cache! :current_version
-							end
-							menu.choice(:no) { handle_refusing_to_continue }
-							menu.choice(:refresh) do
-								wait_for_manual_check
+							self.class::MANUAL_CHECK_MENU.each do |choice, block|
+								menu.choice(choice) { instance_exec(&block) }
 							end
 						end
 					end
