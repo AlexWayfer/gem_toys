@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## 0.11.3 (2021-11-10)
+
+*   Resolve RuboCop offense, take out manual check menu choices.
+
 ## 0.11.2 (2021-11-07)
 
 *   Fix version for gem staff after manual refresh too.
