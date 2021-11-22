@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
 	spec.metadata['homepage_uri'] = spec.homepage
 
 	spec.metadata['changelog_uri'] =
-		'https://github.com/AlexWayfer/gem_toys/blob/master/CHANGELOG.md'
+		'https://github.com/AlexWayfer/gem_toys/blob/main/CHANGELOG.md'
 
 	spec.metadata['rubygems_mfa_required'] = 'true'
 

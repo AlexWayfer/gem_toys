@@ -1,11 +1,11 @@
 # Gem Toys
 
 [![Cirrus CI - Base Branch Build Status](https://img.shields.io/cirrus/github/AlexWayfer/gem_toys?style=flat-square)](https://cirrus-ci.com/github/AlexWayfer/gem_toys)
-[![Codecov branch](https://img.shields.io/codecov/c/github/AlexWayfer/gem_toys/master.svg?style=flat-square)](https://codecov.io/gh/AlexWayfer/gem_toys)
+[![Codecov branch](https://img.shields.io/codecov/c/github/AlexWayfer/gem_toys/main.svg?style=flat-square)](https://codecov.io/gh/AlexWayfer/gem_toys)
 [![Code Climate](https://img.shields.io/codeclimate/maintainability/AlexWayfer/gem_toys.svg?style=flat-square)](https://codeclimate.com/github/AlexWayfer/gem_toys)
 [![Depfu](https://img.shields.io/depfu/AlexWayfer/benchmark_toys?style=flat-square)](https://depfu.com/repos/github/AlexWayfer/gem_toys)
-[![Inline docs](https://inch-ci.org/github/AlexWayfer/gem_toys.svg?branch=master)](https://inch-ci.org/github/AlexWayfer/gem_toys)
-[![license](https://img.shields.io/github/license/AlexWayfer/gem_toys.svg?style=flat-square)](https://github.com/AlexWayfer/gem_toys/blob/master/LICENSE.txt)
+[![Inline docs](https://inch-ci.org/github/AlexWayfer/gem_toys.svg?branch=main)](https://inch-ci.org/github/AlexWayfer/gem_toys)
+[![license](https://img.shields.io/github/license/AlexWayfer/gem_toys.svg?style=flat-square)](https://github.com/AlexWayfer/gem_toys/blob/main/LICENSE.txt)
 [![Gem](https://img.shields.io/gem/v/gem_toys.svg?style=flat-square)](https://rubygems.org/gems/gem_toys)
 
 [Toys](https://github.com/dazuma/toys) template for gems, like building, releasing, etc.

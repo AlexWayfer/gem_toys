@@ -11,7 +11,7 @@ module GemToys
 					## `current_version` should be refreshed before this method invocation
 					version_git_tag = "#{@template.version_tag_prefix}#{current_version}"
 
-					## Checkout to a new git branch, required for protected `master` with CI
+					## Checkout to a new git branch, required for protected `main` with CI
 					# sh "git switch -c #{version_git_tag}"
 
 					commit_changes
