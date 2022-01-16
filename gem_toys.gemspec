@@ -32,7 +32,7 @@ Gem::Specification.new do |spec|
 	spec.required_ruby_version = '>= 2.5', '< 4'
 
 	spec.add_runtime_dependency 'alt_memery', '~> 2.1'
-	spec.add_runtime_dependency 'faraday', '~> 1.0'
+	spec.add_runtime_dependency 'faraday', '~> 2.1'
 	spec.add_runtime_dependency 'faraday_middleware', '~> 1.0'
 	spec.add_runtime_dependency 'highline', '~> 2.0'
 
