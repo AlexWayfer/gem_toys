@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+## 0.12.1 (2022-02-07)
+
+*   Drop Ruby 2.5 support.
+*   Add Ruby 3.1 support.
+
 ## 0.12.0 (2022-02-07)
 
 *   Update Faraday to version 2.
