@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+## 0.12.0 (2022-02-07)
+
+*   Update Faraday to version 2.
+*   Update development dependencies.
+
 ## 0.11.3 (2021-11-10)
 
 *   Resolve RuboCop offense, take out manual check menu choices.
