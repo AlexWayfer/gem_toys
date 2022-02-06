@@ -53,7 +53,6 @@ module GemToys
 
 			memoize def rubygems_connection
 				require 'faraday'
-				require 'faraday_middleware'
 
 				Faraday.new 'https://rubygems.org/api/v1' do |connection|
 					connection.response :json,
