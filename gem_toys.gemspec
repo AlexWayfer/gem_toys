@@ -34,17 +34,4 @@ Gem::Specification.new do |spec|
 	spec.add_runtime_dependency 'alt_memery', '~> 2.1'
 	spec.add_runtime_dependency 'faraday', '~> 2.0'
 	spec.add_runtime_dependency 'highline', '~> 2.0'
-
-	spec.add_development_dependency 'pry-byebug', '~> 3.9'
-
-	spec.add_development_dependency 'bundler', '~> 2.0'
-	spec.add_development_dependency 'toys', '~> 0.14.2'
-
-	spec.add_development_dependency 'rspec', '~> 3.9'
-	spec.add_development_dependency 'simplecov', '~> 0.22.0'
-	spec.add_development_dependency 'simplecov-cobertura', '~> 2.1'
-
-	spec.add_development_dependency 'rubocop', '~> 1.53.0'
-	spec.add_development_dependency 'rubocop-performance', '~> 1.0'
-	spec.add_development_dependency 'rubocop-rspec', '~> 2.0'
 end
