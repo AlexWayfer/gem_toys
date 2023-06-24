@@ -43,7 +43,7 @@ Metrics/BlockLength:
     - lib/gem_toys/template/*.rb
 
 AllCops:
-  TargetRubyVersion: 2.6
+  TargetRubyVersion: 2.7
   NewCops: enable
 
 RSpec/NestedGroups:
