@@ -2,6 +2,15 @@
 
 ## Unreleased
 
+## 0.13.0 (2023-10-16)
+
+*   Drop Ruby 2.6 support.
+*   Add Ruby 3.2 support.
+*   Add missing runtime `toys-core` dependency.
+*   Move development dependencies from gemspec into Gemfile.
+*   Update development dependencies.
+*   Improve CI config.
+
 ## 0.12.1 (2022-02-07)
 
 *   Drop Ruby 2.5 support.
