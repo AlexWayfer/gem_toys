@@ -34,8 +34,8 @@ module GemToys
 					end
 
 					@changelog_lines.insert(
-						unreleased_title_index + 2,
-						('#' * unreleased_title.scan(/^#+/).first.size) + " #{@new_version} (#{@today})\n\n"
+						unreleased_title_index + 1,
+						"\n#{'#' * unreleased_title.scan(/^#+/).first.size} #{@new_version} (#{@today})\n"
 					).join
 				end
 
