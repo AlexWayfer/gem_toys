@@ -33,6 +33,6 @@ Gem::Specification.new do |spec|
 
 	spec.add_runtime_dependency 'alt_memery', '~> 2.1'
 	spec.add_runtime_dependency 'faraday', '~> 2.0'
-	spec.add_runtime_dependency 'highline', '~> 2.0'
+	spec.add_runtime_dependency 'highline', '~> 3.0'
 	spec.add_runtime_dependency 'toys-core', '~> 0.15.1'
 end
