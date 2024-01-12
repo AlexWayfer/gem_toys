@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+## 0.14.0 (2024-01-12)
+
+*   Fix `release` change for `CHANGELOG` when there are no releases and changes yet.
+*   Drop Ruby 2.7 support.
+*   Add Ruby 3.3 support.
+*   Update `highline` dependency to a new major version.
+*   Update development dependencies.
+
 ## 0.13.0 (2023-10-16)
 
 *   Drop Ruby 2.6 support.
