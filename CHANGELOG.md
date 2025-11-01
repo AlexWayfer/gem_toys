@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+## 0.15.0 (2025-11-02)
+
+*   Add Ruby 3.4 for CI.
+*   Update Toys dependencies.
+*   Resolve new RuboCop offenses.
+*   Switch from Depfu to Renovate.
+*   Update development dependencies.
+
 ## 0.14.0 (2024-01-12)
 
 *   Fix `release` change for `CHANGELOG` when there are no releases and changes yet.
