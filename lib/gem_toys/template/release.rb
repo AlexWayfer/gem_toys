@@ -30,6 +30,25 @@ module GemToys
 					include Release::Changelog
 					include Release::Git
 
+					self::VERSION_TYPES = %w[
+						major
+						minor
+						patch
+					].freeze
+
+					self::MANUAL_CHECK_MENU = {
+						yes: (proc do
+							## `current_version` is using in `git` and `gem` commands
+							clear_memery_cache! :current_version
+						end),
+						no: (proc do
+							handle_refusing_to_continue
+						end),
+						refresh: (proc do
+							wait_for_manual_check
+						end)
+					}.freeze
+
 					required_arg :new_version
 
 					to_run do
@@ -59,12 +78,6 @@ module GemToys
 					end
 
 					private
-
-					self::VERSION_TYPES = %w[
-						major
-						minor
-						patch
-					].freeze
 
 					def handle_new_version
 						## https://github.com/dazuma/toys/issues/103
@@ -98,19 +111,6 @@ module GemToys
 							version_file_content.sub(/(VERSION = )'.+'/, "\\1'#{@new_version}'")
 						)
 					end
-
-					self::MANUAL_CHECK_MENU = {
-						yes: (proc do
-							## `current_version` is using in `git` and `gem` commands
-							clear_memery_cache! :current_version
-						end),
-						no: (proc do
-							handle_refusing_to_continue
-						end),
-						refresh: (proc do
-							wait_for_manual_check
-						end)
-					}.freeze
 
 					def wait_for_manual_check
 						print_files_diff
