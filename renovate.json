@@ -1,0 +1,37 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": [
+		"config:base",
+		":disableDependencyDashboard"
+	],
+	"packageRules": [
+		{
+			"matchPackagePatterns": ["^remark"],
+			"matchCategories": ["node"],
+			"groupName": "remark packages"
+		},
+		{
+			"matchPackagePatterns": ["^bundler"],
+			"matchCategories": ["ruby"],
+			"groupName": "Bundler packages"
+		},
+		{
+			"matchPackagePatterns": ["^rubocop"],
+			"matchCategories": ["ruby"],
+			"groupName": "RuboCop packages"
+		},
+		{
+			"matchPackagePatterns": ["^simplecov"],
+			"matchCategories": ["ruby"],
+			"groupName": "SimpleCov packages"
+		},
+		{
+			"matchPackagePatterns": [
+				"^toys",
+				"_toys$"
+			],
+			"matchCategories": ["ruby"],
+			"groupName": "Toys packages"
+		}
+	]
+}
