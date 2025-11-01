@@ -6,29 +6,29 @@
 	],
 	"packageRules": [
 		{
-			"matchPackageNames": ["^remark"],
+			"matchPackageNames": ["remark*"],
 			"matchDatasources": ["npm"],
 			"groupName": "remark packages"
 		},
 		{
-			"matchPackageNames": ["^bundler"],
+			"matchPackageNames": ["bundler*"],
 			"matchDatasources": ["rubygems"],
 			"groupName": "Bundler packages"
 		},
 		{
-			"matchPackageNames": ["^rubocop"],
+			"matchPackageNames": ["rubocop*"],
 			"matchDatasources": ["rubygems"],
 			"groupName": "RuboCop packages"
 		},
 		{
-			"matchPackageNames": ["^simplecov"],
+			"matchPackageNames": ["simplecov*"],
 			"matchDatasources": ["rubygems"],
 			"groupName": "SimpleCov packages"
 		},
 		{
 			"matchPackageNames": [
-				"^toys",
-				"_toys$"
+				"toys*",
+				"*_toys"
 			],
 			"matchDatasources": ["rubygems"],
 			"groupName": "Toys packages"
