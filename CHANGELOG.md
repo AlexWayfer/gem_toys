@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+## 0.16.0 (2025-11-10)
+
+*   Replace `alias_tool` with `delegate_relative:`.
+*   Update dependency `toys` to `~> 0.17.0`.
+
 ## 0.15.0 (2025-11-02)
 
 *   Add Ruby 3.4 for CI.
