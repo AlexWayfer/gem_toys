@@ -45,7 +45,7 @@ expand GemToys::Template,
   version_tag_prefix: ''
 
 # `gem` namespace created, aliases are optional, but handful
-alias_tool :g, :gem
+tool :g, delegate_relative: :gem
 ```
 
 ### Build

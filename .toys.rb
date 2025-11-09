@@ -5,4 +5,4 @@ include :bundler, static: true
 require_relative 'lib/gem_toys'
 expand GemToys::Template
 
-alias_tool :g, :gem
+tool :g, delegate_relative: :gem

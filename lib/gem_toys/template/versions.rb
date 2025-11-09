@@ -26,7 +26,8 @@ module GemToys
 						puts_versions versions
 					end
 				end
-				alias_tool :releases, :versions
+
+				tool :releases, delegate_relative: :versions
 			end
 		end
 	end
