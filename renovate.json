@@ -4,6 +4,19 @@
 		"config:recommended",
 		":disableDependencyDashboard"
 	],
+	"customManagers": [
+		{
+			"customType": "regex",
+			"fileMatch": [
+				"^.*\\.gemspec"
+			],
+			"matchStrings": [
+				".*\\.add_(:?(?<depType>.*?)_)?dependency\\s*(['\"])(?<depName>[^'\"]+)(['\"])(\\s*,\\s*(?<currentValue>(['\"])[^'\"]+['\"](\\s*,\\s*['\"][^'\"]+['\"])?))?"
+			],
+			"datasourceTemplate": "rubygems",
+			"versioningTemplate": "ruby"
+		}
+	],
 	"packageRules": [
 		{
 			"matchPackageNames": ["remark*"],
@@ -32,6 +45,16 @@
 			],
 			"matchDatasources": ["rubygems"],
 			"groupName": "Toys packages"
+		},
+		{
+			"description": "Applies \":preserveSemverRanges\" to the custom above manager. See: https://github.com/renovatebot/renovate/discussions/28090",
+			"matchDatasources": [
+				"rubygems"
+			],
+			"matchManagers": [
+				"custom.regex"
+			],
+			"rangeStrategy": "replace"
 		}
 	]
 }
