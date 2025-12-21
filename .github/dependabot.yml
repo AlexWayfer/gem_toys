@@ -1,0 +1,34 @@
+version: 2
+updates:
+  - package-ecosystem: bundler
+    directory: /
+    schedule:
+      interval: daily
+    groups:
+      bundler:
+        patterns:
+          - 'bundler'
+          - 'bundler-*'
+      toys:
+        patterns:
+          - 'toys'
+          - 'toys-*'
+          - '*_toys'
+      rubocop:
+        patterns:
+          - 'rubocop'
+          - 'rubocop-*'
+      simplecov:
+        patterns:
+          - 'simplecov'
+          - 'simplecov-*'
+
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: daily
+    groups:
+      remark:
+        patterns:
+          - 'remark'
+          - 'remark-*'
