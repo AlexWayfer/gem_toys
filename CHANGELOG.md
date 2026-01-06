@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+## 1.0.0 (2026-01-07)
+
+*   Allow Ruby 4.0.
+*   Update dependencies.
+*   Remove `bundler` as development dependency.
+*   Fail `remark` on any warning.
+*   Resolve new Bundler deprecation warning in CI.
+
 ## 0.16.0 (2025-11-10)
 
 *   Replace `alias_tool` with `delegate_relative:`.
