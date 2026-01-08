@@ -31,7 +31,7 @@ Gem::Specification.new do |spec|
 
 	spec.required_ruby_version = ['>= 3.0', '< 5']
 
-	spec.add_dependency 'alt_memery', '~> 2.1'
+	spec.add_dependency 'alt_memery', '~> 3.0'
 	spec.add_dependency 'faraday', '~> 2.0'
 	spec.add_dependency 'highline', '~> 3.0'
 	spec.add_dependency 'toys-core', '~> 0.19.0'
