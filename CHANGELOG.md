@@ -8,7 +8,7 @@
 *   Drop Ruby 3.0, 3.1, 3.2 and 3.3 support.
 *   Disable `pry-byebug` requiring in spec helper.
 
-## 1.0.0 (2026-01-07) [yanked]
+## 1.0.0 (2026-01-07) \[yanked\]
 
 *   Allow Ruby 4.0.
 *   Update dependencies.
