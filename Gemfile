@@ -10,6 +10,10 @@ group :development do
 	gem 'toys', '~> 0.19.0'
 end
 
+group :audit do
+	gem 'bundler-audit', '~> 0.9.0'
+end
+
 group :test do
 	gem 'rspec', '~> 3.9'
 	gem 'simplecov', '~> 0.22.0'
