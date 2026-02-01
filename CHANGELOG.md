@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+## 1.0.2 (2026-02-01)
+
+*   Return Ruby 3.2 and 3.3 support.
+*   Resolve `remark` offense in CHANGELOG.
+*   Add `bundle-audit` CI task.
+*   Update development dependencies.
+
 ## 1.0.1 (2026-01-08)
 
 *   Update `alt_memery` dependency.
