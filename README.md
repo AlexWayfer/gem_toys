@@ -1,6 +1,7 @@
 # Gem Toys
 
 [![Cirrus CI - Base Branch Build Status](https://img.shields.io/cirrus/github/AlexWayfer/gem_toys?style=flat-square)](https://cirrus-ci.com/github/AlexWayfer/gem_toys)
+[![Depfu](https://img.shields.io/depfu/AlexWayfer/gem_toys?style=flat-square)](https://depfu.com/repos/github/AlexWayfer/gem_toys)
 [![Codecov branch](https://img.shields.io/codecov/c/github/AlexWayfer/gem_toys/main.svg?style=flat-square)](https://codecov.io/gh/AlexWayfer/gem_toys)
 [![Code Climate](https://img.shields.io/codeclimate/maintainability/AlexWayfer/gem_toys.svg?style=flat-square)](https://codeclimate.com/github/AlexWayfer/gem_toys)
 [![Inline docs](https://inch-ci.org/github/AlexWayfer/gem_toys.svg?branch=main)](https://inch-ci.org/github/AlexWayfer/gem_toys)
