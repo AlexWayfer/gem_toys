@@ -11,7 +11,7 @@ group :development do
 end
 
 group :audit do
-	gem 'bundler-audit', '~> 0.9.0'
+	gem 'bundler-audit', '~> 0.9.3'
 end
 
 group :test do
