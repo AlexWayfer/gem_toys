@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gemspec
 
 group :development do
-	gem 'pry-byebug', '~> 3.9'
+	gem 'pry-byebug', '~> 3.12'
 
 	gem 'toys', '~> 0.22.0'
 end
