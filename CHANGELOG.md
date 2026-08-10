@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+## 1.1.0 (2026-08-10)
+
+*   Update dependencies.
+*   Switch from Cirrus CI to GitHub Actions.
+*   Try Dependabot.
+
 ## 1.0.2 (2026-02-01)
 
 *   Return Ruby 3.2 and 3.3 support.
