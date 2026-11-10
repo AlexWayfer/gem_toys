@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 1.2.0 (2026-11-10)
+
 *   Require Toys 0.25.
 *   Update development dependencies.
 *   Replace the Code Climate badge with Qlty maintainability.
