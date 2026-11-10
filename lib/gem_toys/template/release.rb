@@ -11,18 +11,21 @@ module GemToys
 		class Release
 			include Toys::Template
 
-			attr_reader :changelog_file_name, :version_file_path, :version_tag_prefix, :unreleased_title
+			attr_reader :changelog_file_name, :version_file_path, :version_tag_prefix,
+				:unreleased_title, :publish_gem
 
 			def initialize(
 				changelog_file_name:,
 				version_file_path:,
 				version_tag_prefix:,
-				unreleased_title:
+				unreleased_title:,
+				publish_gem: true
 			)
 				@changelog_file_name = changelog_file_name
 				@version_file_path = version_file_path
 				@version_tag_prefix = version_tag_prefix
 				@unreleased_title = unreleased_title
+				@publish_gem = publish_gem
 			end
 
 			on_expand do |template|
@@ -30,11 +33,7 @@ module GemToys
 					include Release::Changelog
 					include Release::Git
 
-					self::VERSION_TYPES = %w[
-						major
-						minor
-						patch
-					].freeze
+					self::VERSION_TYPES = %w[major minor patch].freeze
 
 					self::MANUAL_CHECK_MENU = {
 						yes: (proc do
@@ -72,6 +71,8 @@ module GemToys
 
 						## Commit, tag, push
 						process_git
+
+						next unless template.publish_gem
 
 						puts 'Pushing gem...'
 						sh "gem push #{current_gem_file}"

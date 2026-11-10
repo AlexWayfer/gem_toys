@@ -5,6 +5,8 @@
 *   Require Toys 0.25.
 *   Update development dependencies.
 *   Replace the Code Climate badge with Qlty maintainability.
+*   Add `publish_gem: false` to delegate gem publishing to CI.
+*   Publish this gem from GitHub Actions when a version tag is pushed.
 
 ## 1.1.0 (2026-08-10)
 

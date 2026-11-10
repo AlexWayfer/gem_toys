@@ -43,7 +43,9 @@ expand GemToys::Template,
   ## default is `"lib/#{project_name_with_slashes_instead_dashes}/version.rb"`
   version_file_path: 'lib/my-awesome_gem.rb',
   ## default is `v`, so tags are like `v4.1.0`
-  version_tag_prefix: ''
+  version_tag_prefix: '',
+  ## default is `true`; use `false` when CI publishes the gem after the tag is pushed
+  publish_gem: false
 
 # `gem` namespace created, aliases are optional, but handful
 tool :g, delegate_relative: :gem
@@ -71,7 +73,7 @@ tool :g, delegate_relative: :gem
 5.  Commit these files.
 6.  Tag this commit with `vX.Y.Z`.
 7.  Push git commit and tag.
-8.  Push the new gem.
+8.  Push the new gem, unless `publish_gem: false` is configured.
 
 ## Development
 
@@ -82,6 +84,25 @@ Then, run `toys rspec` to run the tests.
 To install this gem onto your local machine, run `toys gem install`.
 
 To release a new version, run `toys gem release %version%`. See how it works [here](#release).
+
+### Publishing this gem
+
+This repository sets `publish_gem: false`: Toys prepares the version, dated changelog,
+commit, and tag, and GitHub Actions publishes the gem when a `v*` tag is pushed.
+The workflow checks the tag against the gem version and dated changelog, runs the checks,
+and builds the gem before publishing.
+
+Before the first automated release, configure a
+[RubyGems trusted publisher](https://guides.rubygems.org/trusted-publishing/)
+for `gem_toys` with these values:
+
+*   Repository owner: `AlexWayfer`
+*   Repository name: `gem_toys`
+*   Workflow filename: `release.yml`
+*   Environment: `release`
+
+No RubyGems API key is stored in GitHub secrets. After a failed release, fix the cause and
+re-run the failed workflow jobs for the same tag.
 
 ## Contributing
 
