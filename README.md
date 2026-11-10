@@ -3,7 +3,7 @@
 [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/AlexWayfer/gem_toys/ci.yml?style=flat-square)](https://github.com/AlexWayfer/gem_toys/actions)
 [![Depfu](https://img.shields.io/depfu/AlexWayfer/gem_toys?style=flat-square)](https://depfu.com/repos/github/AlexWayfer/gem_toys)
 [![Codecov branch](https://img.shields.io/codecov/c/github/AlexWayfer/gem_toys/main.svg?style=flat-square)](https://codecov.io/gh/AlexWayfer/gem_toys)
-[![Code Climate](https://img.shields.io/codeclimate/maintainability/AlexWayfer/gem_toys.svg?style=flat-square)](https://codeclimate.com/github/AlexWayfer/gem_toys)
+[![Qlty maintainability](https://qlty.sh/gh/AlexWayfer/projects/gem_toys/maintainability.svg)](https://qlty.sh/gh/AlexWayfer/projects/gem_toys)
 [![Inline docs](https://inch-ci.org/github/AlexWayfer/gem_toys.svg?branch=main)](https://inch-ci.org/github/AlexWayfer/gem_toys)
 [![license](https://img.shields.io/github/license/AlexWayfer/gem_toys.svg?style=flat-square)](https://github.com/AlexWayfer/gem_toys/blob/main/LICENSE.txt)
 [![Gem](https://img.shields.io/gem/v/gem_toys.svg?style=flat-square)](https://rubygems.org/gems/gem_toys)
