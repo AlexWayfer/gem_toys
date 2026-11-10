@@ -25,6 +25,7 @@ jobs:
               - '.gitignore'
               - 'package.json'
               - '.remarkrc.yaml'
+              - '.remarkignore'
               - '**.md'
             bundle_audit:
               - '.github/workflows/ci.yml'
