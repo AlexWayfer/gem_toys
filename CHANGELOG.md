@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+*   Support Toys 0.25.
+
 ## 1.1.0 (2026-08-10)
 
 *   Update dependencies.
